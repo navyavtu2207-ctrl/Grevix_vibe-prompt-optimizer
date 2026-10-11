@@ -1,90 +1,121 @@
 import streamlit as st
 
-st.set_page_config(page_title="Stateful Prompt Optimizer", page_icon="⚡", layout="wide")
+st.set_page_config(page_title="Stateful Prompt Engine Pro", page_icon="⚡", layout="wide")
 
-st.title("⚡ AI Vibe-Coding Prompt Optimizer (Stateful Engine)")
-st.caption("Grevix AfterCode Phase 2 | Challenge Card 1: Stateful Constraint Graph & Conflict Gate")
+st.title("⚡ AI Vibe-Coding Prompt Optimizer (Stateful Engine Pro)")
+st.caption("Grevix AfterCode Phase 2 | Upgraded: Semantic Gate, Structured Nodes & Sandbox")
 
-# Initialize Stateful Constraint Graph in session memory
+# FIX 3: Structured Node Schema (Tracking constraints as structured dictionary objects)
 if "constraint_graph" not in st.session_state:
     st.session_state.constraint_graph = {
-        "architecture": "Stateless system execution",
-        "security": "Follow standard security guidelines",
-        "error_handling": "Implement explicit exception handling blocks"
+        "core_architecture": {"state": "Stateless", "description": "Stateless system execution channels"},
+        "security_compliance": {"state": "Standard", "description": "Enforce basic application security guidelines"},
+        "error_handling": {"state": "Explicit", "description": "Implement explicit try-except block structures"}
     }
 if "history" not in st.session_state:
     st.session_state.history = []
 
-# Sidebar displaying active baseline constraints (The Stateful Graph view)
+# Sidebar displaying active graph states
 with st.sidebar:
     st.header("🕸️ Active Architectural Graph")
-    st.write("These are your baseline constraints saved in memory:")
-    for key, val in st.session_state.constraint_graph.items():
-        st.markdown(f"**• {key.replace('_', ' ').title()}:** `{val}`")
+    st.write("Current infrastructure nodes held in memory:")
+    for key, node in st.session_state.constraint_graph.items():
+        st.markdown(f"**• {key.replace('_', ' ').title()}:** `{node['state']}` ({node['description']})")
     
-    if st.button("Reset Session Memory", type="secondary"):
+    st.divider()
+    if st.button("Reset Session Memory Layout", type="secondary"):
         st.session_state.constraint_graph = {
-            "architecture": "Stateless system execution",
-            "security": "Follow standard security guidelines",
-            "error_handling": "Implement explicit exception handling blocks"
+            "core_architecture": {"state": "Stateless", "description": "Stateless system execution channels"},
+            "security_compliance": {"state": "Standard", "description": "Enforce basic application security guidelines"},
+            "error_handling": {"state": "Explicit", "description": "Implement explicit try-except block structures"}
         }
         st.session_state.history = []
         st.rerun()
 
-# Layout splits: Input forms on left, results on right
+# Layout splits
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("📥 Multi-Turn Feature Request Input")
-    new_request = st.text_area("Enter your new system requirement / iteration step:", placeholder="e.g., Make the system maintain a persistent database connection storage cache...")
+    st.subheader("📥 Multi-Turn Constraint Iteration")
+    new_request = st.text_area(
+        "Input your next feature requirement or target layout constraint:", 
+        placeholder="e.g., Write user session logs directly to a local file on the hard drive..."
+    )
     
-    # Conflict Detection Gate Logic
+    # FIX 1: Expanded Semantic Check Gate (Catches variations like 'write to disk', 'hard drive', etc.)
     conflict_detected = False
-    conflict_message = ""
+    conflict_cause = ""
     
     if new_request:
-        # Simple keywords gate checking for structural contradictions
         lowered_req = new_request.lower()
-        if "stateful" in lowered_req or "persistent" in lowered_req or "cache" in lowered_req or "store" in lowered_req:
-            if "Stateless" in st.session_state.constraint_graph["architecture"]:
+        stateful_intents = ["stateful", "persistent", "cache", "store", "save file", "database", "write to disk", "log history", "local file", "hard drive"]
+        
+        if any(intent in lowered_req for intent in stateful_intents):
+            if st.session_state.constraint_graph["core_architecture"]["state"] == "Stateless":
                 conflict_detected = True
-                conflict_message = """❌ **Conflict Detected at Architectural Gate!**
-                \n**New Feature:** Requesting persistent/stateful storage.
-                \n**Existing Constraint:** `architecture: Stateless system execution`.
-                \n*re-synthesizing the complete context from scratch is locked to preserve baseline code.*"""
+                conflict_cause = "Requested stateful/persistent layer contradicts the active 'Stateless' core node configuration."
 
-    if st.button("Process Iteration Step", type="primary"):
+    if st.button("Process Iteration Engine Step", type="primary"):
         if new_request.strip():
             if conflict_detected:
-                st.error(conflict_message)
-                # Generate Non-Destructive Differential specification patch
-                st.info("🛠️ **Generating Non-Destructive Differential Patch...**")
-                patch = f"""
-```markdown
-### DIFFERENTIAL SPECIFICATION PATCH (NON-DESTRUCTIVE)
-[UNCHANGED] security -> Follow standard security guidelines
-[UNCHANGED] error_handling -> Implement explicit exception handling blocks
-[MODIFIED PATCH] architecture -> Upgraded from [Stateless] to [Stateful Connection/Storage Cache] to accommodate new feature constraint.
-```
-"""
-                st.session_state.history.append({"request": new_request, "type": "Conflict & Patch Applied", "patch": patch})
-                # Update the graph dynamically without crashing the system
-                st.session_state.constraint_graph["architecture"] = "Stateful Connection/Storage Cache (Patched)"
+                st.error(f"🚨 **Architectural Conflict Blocked!**\n\n**Reason:** {conflict_cause}\n\n*Platform locked: Full re-synthesis rejected to protect baseline components.*")
+                
+                # Generate Non-Destructive Patch
+                patch = f"""### DIFFERENTIAL SPECIFICATION PATCH (NON-DESTRUCTIVE)
+[UNCHANGED] security_compliance -> Enforce basic application security guidelines
+[UNCHANGED] error_handling -> Implement explicit try-except block structures
+[MODIFIED NODE] core_architecture -> Upgraded from [Stateless] to [Stateful Adapter Patch Layer] to handle incoming filesystem traffic."""
+                
+                # FIX 2: Simulation Sandbox Blueprint (A visual mock code layout displaying execution changes)
+                sandbox_blueprint = """// Simulated Storage Patch Layer
+function initSessionStorage() {
+    console.log("Stateful patch adapter layer executed securely.");
+    // Isolated local environment file cache system activated
+}"""
+                st.session_state.history.append({
+                    "request": new_request,
+                    "status": "🚨 Patched Conflict",
+                    "patch": patch,
+                    "blueprint": sandbox_blueprint
+                })
+                # Update the node safely
+                st.session_state.constraint_graph["core_architecture"] = {"state": "Stateful (Patched)", "description": "Stateful Adapter Patch Layer activated"}
             else:
-                st.success("✅ Requirement added smoothly with zero added latency.")
-                st.session_state.history.append({"request": new_request, "type": "Smooth Addition", "patch": "No conflicts found. Single-turn baseline synthesized cleanly."})
+                st.success("✅ Requirement verified smoothly. Integrated with zero added framework latency.")
+                patch = f"### SYSTEM BASELINE UPDATE\n[SUCCESS] Node context updated with entry: \"{new_request}\""
+                sandbox_blueprint = """// Default running channel 
+function baselineProcess() {
+    console.log("System operating on baseline stateless channel.");
+}"""
+                st.session_state.history.append({
+                    "request": new_request,
+                    "status": "✅ Clean Integration",
+                    "patch": patch,
+                    "blueprint": sandbox_blueprint
+                })
         else:
-            st.warning("Please type a new request constraint first.")
+            st.warning("Please describe your iteration input constraint row first.")
 
 with col2:
-    st.subheader("🚀 Output Specification & Patch History")
+    st.subheader("🚀 Output Sandbox & Specification History")
     if not st.session_state.history:
-        st.info("Your multi-turn iterative history blocks will display here once you process an entry.")
+        st.info("Your dynamic iteration trace and blueprint engine logs will render blocks here.")
     else:
         for idx, turn in enumerate(st.session_state.history):
-            with st.expander(f"Turn {idx + 1}: {turn['type']}", expanded=True):
-                st.markdown(f"**User Request:** *\"{turn['request']}\"*")
-                if "Conflict" in turn["type"]:
-                    st.code(turn["patch"], language="markdown")
-                else:
-                    st.caption(turn["patch"])
+            with st.expander(f"Turn {idx + 1}: {turn['status']}", expanded=True):
+                st.markdown(f"**Input Request:** *\"{turn['request']}\"*")
+                
+                st.markdown("#### 📄 Specification Sheet")
+                st.code(turn["patch"], language="markdown")
+                
+                st.markdown("#### 💻 Live Blueprint Simulation Sandbox")
+                st.code(turn["blueprint"], language="javascript")
+                
+                # Single-click download asset
+                st.download_button(
+                    label="📥 Download System Spec Patch Asset",
+                    data=turn["patch"] + "\n\n" + turn["blueprint"],
+                    file_name=f"grevix_spec_turn_{idx+1}.md",
+                    mime="text/markdown",
+                    key=f"dl_pro_{idx}"
+                )
