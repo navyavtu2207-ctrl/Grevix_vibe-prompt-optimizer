@@ -6,26 +6,27 @@ st.set_page_config(page_title="Grevix Prompt Optimizer - Live Dashboard", page_i
 st.title("🕸️ AI Vibe-Coding Prompt Optimizer (Live Dashboard Pro)")
 st.caption("Grevix AfterCode Phase 3 | 100% Dynamic Shared Real-Time User Feedback Feed")
 
-# 🌐 Real-Time Open Cloud Storage Channel (Shared across all internet devices instantly)
-# This public bin serves as a live open database to connect different users to your screen
-CLOUD_API_URL = "https://jsonbin.io"
+# 🌐 Bulletproof Open Cloud Channel: This unique public key lets anyone send data directly to your dashboard screen!
+UNIQUE_BIN_ID = "grevix_prompt_optimizer_navya_2026"
+CLOUD_API_URL = f"https://kvbin.com{UNIQUE_BIN_ID}"
 
 def fetch_live_user_feedback():
     try:
-        # Fetch directly from the live shared cloud bin
-        res = requests.get(CLOUD_API_URL, headers={"X-Bin-Meta": "false"}, timeout=4)
-        if res.status_code == 200 and isinstance(res.json(), list):
-            return res.json()
+        res = requests.get(CLOUD_API_URL, timeout=4)
+        if res.status_code == 200:
+            data = res.json()
+            if isinstance(data, list):
+                return data
     except Exception:
         pass
-    return []  # Fallback gracefully if network drops
+    return []
 
 def save_live_user_feedback(new_entry):
     current_feedbacks = fetch_live_user_feedback()
     current_feedbacks.append(new_entry)
     try:
-        # Update the live cloud database instantly across the internet
-        requests.put(CLOUD_API_URL, json=current_feedbacks, headers={"Content-Type": "application/json"}, timeout=4)
+        # Pushes updates directly to the shared cloud server loop instantly
+        requests.post(CLOUD_API_URL, json=current_feedbacks, timeout=4)
     except Exception:
         pass
 
@@ -96,7 +97,7 @@ with col1:
             
     st.divider()
     
-    # 🚨 DYNAMIC LIVE USER FEEDBACK LOOP PORTAL
+    # DYNAMIC LIVE USER FEEDBACK LOOP PORTAL
     st.subheader("🗣️ Live Shared Feedback Portal")
     st.write("Submit honest reviews here. Comments from ANY computer show up live across the network!")
     
@@ -105,14 +106,12 @@ with col1:
     
     if st.button("Publish Live Feedback to Shared Dashboard", type="secondary", use_container_width=True):
         if fb_text.strip():
-            # Packetize data entry 
             entry = {
                 "name": fb_name if fb_name.strip() else "Anonymous User", 
                 "feedback": fb_text.strip()
             }
-            # Save right to the cloud database
             save_live_user_feedback(entry)
-            st.success("🎉 Sent to cloud database! Refreshing dashboard stream...")
+            st.success("🎉 Sent to cloud database! Auto-refreshing dashboard stream...")
             st.rerun()
         else:
             st.warning("Please type a recommendation review first.")
