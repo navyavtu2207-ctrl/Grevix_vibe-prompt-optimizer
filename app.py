@@ -21,12 +21,12 @@ if "session_initialized" not in st.session_state:
 
 # Sidebar displaying active graph states
 with st.sidebar:
-    st.header("🕸️ Active Architectural Graph")
+    st.header(" Active Architectural Graph")
     for key, node in st.session_state.constraint_graph.items():
         st.markdown(f"**• {key.replace('_', ' ').title()}:** `{node['state']}`")
     
     st.divider()
-    st.header("📊 Engine Health Metrics")
+    st.header(" Engine Health Metrics")
     st.metric(label="Total Iterations", value=len(st.session_state.history))
     st.metric(label="Process Latency", value="0 ms", delta="Zero Added Latency")
     
@@ -46,20 +46,20 @@ with st.sidebar:
 def set_autofill(text):
     st.session_state.user_input_text = text
 
-st.markdown("##### ⚡ Quick Testing Scenarios (Click to instantly test)")
+st.markdown("#####  Quick Testing Scenarios (Click to instantly test)")
 c1, c2, c3 = st.columns(3)
 with c1:
-    st.button("🟢 Scenario 1: Safe Modular Build", on_click=set_autofill, args=("Build a fast single-turn prompt template generator that quickly outputs code.",), use_container_width=True)
+    st.button("Scenario 1: Safe Modular Build", on_click=set_autofill, args=("Build a fast single-turn prompt template generator that quickly outputs code.",), use_container_width=True)
 with c2:
-    st.button("🟡 Scenario 2: Scale Optimization", on_click=set_autofill, args=("Make the core structure modular so it can adapt to layout rules later on.",), use_container_width=True)
+    st.button("Scenario 2: Scale Optimization", on_click=set_autofill, args=("Make the core structure modular so it can adapt to layout rules later on.",), use_container_width=True)
 with c3:
-    st.button("🔴 Scenario 3: Critical Conflict Break", on_click=set_autofill, args=("Redesign the engine to maintain a persistent stateful database storage connection cache.",), use_container_width=True)
+    st.button("Scenario 3: Critical Conflict Break", on_click=set_autofill, args=("Redesign the engine to maintain a persistent stateful database storage connection cache.",), use_container_width=True)
 
 # Split Workspace layout
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("📥 Multi-Turn Constraint Input")
+    st.subheader("Multi-Turn Constraint Input")
     
     # Initialize the input text session key securely if missing
     if "user_input_text" not in st.session_state:
@@ -113,7 +113,7 @@ with col1:
             st.warning("Please describe your iteration input constraint row first.")
 
 with col2:
-    st.subheader("🚀 Output Sandbox & Specification History")
+    st.subheader("Output Sandbox & Specification History")
     
     if not st.session_state.history:
         st.info("Your dynamic iteration trace and blueprint engine logs will render blocks here.")
