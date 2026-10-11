@@ -1,27 +1,42 @@
-# ⚡ AI Vibe-Coding Prompt Optimizer (Stateful Engine)
+# 🕸️ AI Vibe-Coding Prompt Optimizer (Dashboard Pro)
 
-Built by a 1st-year engineering student for the **Grevix AfterCode** hackathon (October 2026).
+A live, cloud-connected web application designed to act as an automated architectural governance layer for developer-AI workflows. Developed for the **Grevix AfterCode Hackathon 2026**.
 
-## 🚨 The Core Problem
-With the massive rise of Generative AI tools like ChatGPT and Cursor, many beginner developers try to write application code using standard conversational English. However, regular prompts lack strict engineering constraints, leading to broken execution blocks, unexpected bugs, or total architectural degradation during longer development chats.
+## 🔗 Live Assets
+- **Working Live Demo App:** https://grevixvibe-prompt-optimizer-9e23iuszr4helkmcjrwugr.streamlit.app/
+- **Public GitHub Repository Source:** https://github.com
 
-## 💡 The Solution
-This web application acts as a defensive guardrail layer between the engineer and code generation tools. It translates simple "vibe-coding" ideas into enterprise-grade system prompts featuring explicit error handling, clean structures, and strict modular patterns.
+---
 
-### ✨ Unique Engineering Implementations (Phase 2 Upgrade)
-- **Stateful Architectural Graph:** Maintains persistent infrastructure states (`Stateless system execution`) in local session memory, preventing context drift across multi-turn iterations.
-- **Conflict-Detection Gate:** Actively inspects incoming text requirements against saved graph dependencies to catch design violations early.
-- **Differential Specification Patches:** Generates clean, isolated non-destructive markup updates rather than breaking baseline configurations or executing expensive full-system context rewrites.
+## 🚨 The Core Problem: "Context Destruction"
+With tools like Cursor and ChatGPT, developers heavily rely on natural language ("Vibe-Coding") to spin up projects rapidly. However, during long, multi-turn AI chat loops, standard models frequently suffer from **Context Destruction**. The AI loses track of initial architecture constraints, baseline setup rules, or blindly overwrites working systems when a new requirement is introduced, causing heavy technical debt and regressions.
 
-## 🛠️ Step-by-Step Setup
-Ensure you have Python 3.12+ and Streamlit installed on your machine.
+## 💻 The Solution
+This engine acts as a defensive safety guardrail between the developer and generative code models. It enforces system integrity dynamically in local memory without adding latency to development workflows.
 
-1. Install the required module dependencies:
-```bash
-pip install streamlit
-```
+### ✨ Key Features Built
+* **Stateful Context Memory Graph:** A tracking matrix that pins core architectural setup constraints (e.g., maintaining a strict stateless application layout) firmly across chat iteration loops.
+* **Semantic Conflict-Detection Gate:** Intercepts logical contradictions (e.g., trying to write local storage arrays on a stateless backend node) with **0ms added latency**.
+* **Non-Destructive Differential Patches:** Generates clean, isolated specification patch blocks and JavaScript simulation sandboxes instead of erasing full baselines.
+* **Shared Feedback Feed Panel:** A cloud-connected analytics portal allowing peer testers from *any device anywhere* to stream honest reviews onto the admin dashboard feed in real-time.
 
-2. Run the application instance locally:
-```bash
-streamlit run app.py
-```
+---
+
+## 🛠️ Tech Stack & AI Toolkit
+- **Backend & Core Logic:** Python 3
+- **Frontend Interface:** Streamlit UI Framework
+- **Data Integration & Storage:** KVBin REST API Architecture Channels (Shared Live Feedback Syncing)
+- **Primary IDE:** Cursor Code Editor
+
+---
+
+## 📈 Hackathon Build & Evolution Log
+
+### 🟢 Initial Baseline Setup
+Developed the core local stateful constraint graph engine running verification logic for inbound textual instructions against fixed system variables.
+
+### 🟡 Challenge Card 1 Adaptation
+Replaced a clunky, manual JSON upload/download state recovery system with a completely automated, error-proof **Anti-Cache Reset Guard** using the browser runtime (`st.session_state`). This eliminated file corruption risks, expanded keyword matching arrays, and cleanly retained input state memory during scenario walkthroughs.
+
+### 🔴 Challenge Card 2 Adaptation (Real-World Peer Review Loop)
+Upgraded the single-user local prototype into a **Live Shared Peer Review Dashboard**. Connected a zero-authentication cloud text channel API to the interface backend. Review submissions made by users testing the platform on completely separate computers or phone links now stream dynamically straight into the live global timeline log dashboard view.
