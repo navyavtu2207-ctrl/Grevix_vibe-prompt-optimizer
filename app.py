@@ -13,7 +13,7 @@ if "constraint_graph" not in st.session_state:
         "error_handling": {"state": "Explicit", "description": "Implement explicit try-except block structures"}
     }
 if "history" not in st.session_state:
-    st.session_state.history =
+    st.session_state.history = []
 if "app_feedbacks" not in st.session_state:
     st.session_state.app_feedbacks = []
 
@@ -35,7 +35,7 @@ with st.sidebar:
             "security_compliance": {"state": "Standard", "description": "Enforce basic application security guidelines"},
             "error_handling": {"state": "Explicit", "description": "Implement explicit try-except block structures"}
         }
-        st.session_state.history =
+        st.session_state.history = []
         st.session_state.app_feedbacks = []
         if "user_input_text" in st.session_state:
             st.session_state.user_input_text = ""
