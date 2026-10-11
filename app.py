@@ -3,10 +3,10 @@ import requests
 import json
 import base64
 
-st.set_page_config(page_title="Grevix Prompt Optimizer - Pro Dashboard", page_icon="🕸️", layout="wide")
+st.set_page_config(page_title="Grevix Prompt Optimizer ", page_icon="🕸️", layout="wide")
 
 st.title("🕸️ AI Vibe-Coding Prompt Optimizer (Dashboard Pro)")
-st.caption("Grevix AfterCode Phase 3 | Dynamic Real-Time Shared User Feedback Dashboard")
+st.caption("Grevix AfterCode")
 
 # 🔑 GITHUB CONFIGURATION (Allows the app to read/write feedback dynamically for all users)
 # Since this is a public hackathon repo, we use a public storage strategy to update text records
