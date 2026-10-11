@@ -1,6 +1,6 @@
 # ⚡ AI Vibe-Coding Prompt Optimizer (Stateful Engine)
 
-Built by a 1st-year B.Tech engineering student for the **Grevix AfterCode** hackathon (October 2026).
+Built by a 1st-year engineering student for the **Grevix AfterCode** hackathon (October 2026).
 
 ## 🚨 The Core Problem
 With the massive rise of Generative AI tools like ChatGPT and Cursor, many beginner developers try to write application code using standard conversational English. However, regular prompts lack strict engineering constraints, leading to broken execution blocks, unexpected bugs, or total architectural degradation during longer development chats.
