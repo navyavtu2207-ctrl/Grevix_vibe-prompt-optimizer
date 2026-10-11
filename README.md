@@ -3,9 +3,8 @@
 A live, cloud-connected web application designed to act as an automated architectural governance layer for developer-AI workflows. Developed for the **Grevix AfterCode Hackathon 2026**.
 
 ## 🔗 Live Assets
-- **Working Live Demo App:** https://grevixvibe-prompt-optimizer-9e23iuszr4helkmcjrwugr.streamlit.app/
-- **Public GitHub Repository Source:** https://github.com
-
+- **Working Live Demo App:** https://grevixvibe-prompt-optimizergit-exnzf96agfuoaqr5xxnfdi.streamlit.app/
+- **Public GitHub Repository Source:** https://github.com/navyavtu2207-ctrl/Grevix_vibe-prompt-optimizer.git
 ---
 
 ## 🚨 The Core Problem: "Context Destruction"
