@@ -1,4 +1,4 @@
-import streamlit as st
+\import streamlit as st
 
 st.set_page_config(page_title="Stateful Prompt Engine Ultra", page_icon="⚡", layout="wide")
 
@@ -104,7 +104,7 @@ with col1:
             
     st.divider()
     
-    # NEW FEATURE: Embedded User Feedback Loop Form Widget
+    # Embedded User Feedback Loop Form Widget
     st.subheader("🗣️ In-App User Feedback Portal")
     st.write("Are you testing my app? Leave your suggestions right here!")
     
