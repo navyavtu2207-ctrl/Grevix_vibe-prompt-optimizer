@@ -1,4 +1,4 @@
-\import streamlit as st
+import streamlit as st
 
 st.set_page_config(page_title="Stateful Prompt Engine Ultra", page_icon="⚡", layout="wide")
 
@@ -108,8 +108,8 @@ with col1:
     st.subheader("🗣️ In-App User Feedback Portal")
     st.write("Are you testing my app? Leave your suggestions right here!")
     
-    fb_name = st.text_input("Your Name/Class Section:", placeholder="e.g., Amit - Section A")
-    fb_text = st.text_area("Suggestions for improvements:", placeholder="e.g., Add a dark mode or clear history lifecycle indicator...")
+    fb_name = st.text_input("Your Name/Class Section:", placeholder="e.g., Navya - Section A")
+    fb_text = st.text_area("Suggestions for improvements:", placeholder="e.g., Add a dark mode toggle panel...")
     
     if st.button("Submit Feedback Entry", type="secondary"):
         if fb_text.strip():
